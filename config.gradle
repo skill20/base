@@ -1,0 +1,110 @@
+ext {
+
+    isLoginApplication = false
+
+    android = [
+            compileSdkVersion: 28,
+            minSdkVersion    : 17,
+            targetSdkVersion : 28,
+            versionCode      : 1,
+            versionName      : "1.0.0",
+            buildToolsVersion: "28.0.0",
+    ]
+
+    supportDependencies = [
+            "core"                      : "androidx.core:core-ktx:1.0.2",
+            "fragment"                  : "androidx.fragment:fragment:1.0.0",
+            "viewpager"                 : "androidx.viewpager:viewpager:1.0.0",
+            "appcompat"                 : "androidx.appcompat:appcompat:1.0.2",
+
+            "cardview"                  : "androidx.cardview:cardview:1.0.0",
+            "annotations"               : "androidx.annotation:annotation:1.1.0",
+            "recyclerview"              : "androidx.recyclerview:recyclerview:1.0.0",
+            "design"                    : "com.google.android.material:material:1.0.0",
+            "constraintlayout"          : "androidx.constraintlayout:constraintlayout:1.1.3",
+
+            "lifecycle-extensions"      : "androidx.lifecycle:lifecycle-extensions:2.2.0-alpha03",
+            "lifecycle-viewmodel-ktx"   : "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha03",
+
+            "navigation-fragment-ktx"   : "androidx.navigation:navigation-fragment-ktx:2.0.0",
+            "navigation-ui-ktx"         : "androidx.navigation:navigation-ui-ktx:2.0.0",
+
+            "kotlinx-coroutines-core"   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1",
+            "kotlinx-coroutines-android": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1",
+
+            "multidex"                  : "androidx.multidex:multidex:2.0.1",
+    ]
+
+    jpushDependencies = [
+            //jcore
+            "jiguang.jcore": "cn.jiguang.sdk:jcore:1.2.6",
+            //极光推送
+            "jpush"        : "cn.jiguang.sdk:jpush:3.1.7",
+            //极光统计
+            "janalytics"   : "cn.jiguang.sdk:janalytics:1.2.1",
+    ]
+
+    commonDependencies = [
+
+            //网络框架
+            "imageloader"                  : "cn.jpush.android:imageloader:2.0.9",
+            "net"                          : "cn.jpush.android:net:2.0.6",
+
+            "smartrefresh_layout"          : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-10",
+            "smartrefresh_header"          : "com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-10",
+            "smartrefresh_legacy"          : "androidx.legacy:legacy-support-v4:1.0.0",
+
+            //轻量数据存储
+            "mmkv"                         : "com.tencent:mmkv:1.0.22",
+
+            //Gson
+            "gson"                         : "com.google.code.gson:gson:2.8.2",
+
+            //权限申请
+            "rxpermissions"                : "com.github.tbruyelle:rxpermissions:0.10.2",
+
+            //高德定位
+            "gdlocation"                   : "com.amap.api:location:4.2.0",
+
+            //TabLayout库
+            "flycotablayout_lib"           : "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
+
+            //日志打印工具
+            "logger"                       : "com.orhanobut:logger:2.2.0",
+
+            //图片压缩
+            "luban"                        : "top.zibin:Luban:1.1.8",
+
+            //recycleView 通用 adapter
+            "BaseRecyclerViewAdapterHelper": "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30",
+
+            //弹窗
+            "basePopup"                    : "com.github.razerdp:BasePopup:2.1.8",
+
+            //通用toast
+            "toast"                        : "com.hjq:toast:6.0",
+
+            //switchButton
+            "switchbutton"                 : "com.kyleduo.switchbutton:library:2.0.0",
+
+            //图片圆形裁切
+            "roundedimageview"             : "com.makeramen:roundedimageview:2.3.0",
+
+            //文件下载器
+            "filedownloader"               : "com.liulishuo.filedownloader:library:1.7.6",
+            //状态栏适配
+            "immersionbar"                 : 'com.gyf.immersionbar:immersionbar:3.0.0-beta05',
+    ]
+
+    router = [
+            //router
+            "router"         : "com.alibaba:arouter-api:1.4.1",
+            "router-compiler": "com.alibaba:arouter-compiler:1.2.2",
+    ]
+
+    dependencies = [
+            supportDependencies.values(),
+            commonDependencies.values(),
+            router.router
+    ]
+}
