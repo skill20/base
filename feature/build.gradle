@@ -1,55 +1,37 @@
-apply plugin: 'com.android.application'
-
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+
 apply plugin: 'kotlin-kapt'
-kapt {
-    arguments {
-        arg("AROUTER_MODULE_NAME", project.name)
-    }
-}
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
 
     defaultConfig {
-        applicationId "com.small.trust"
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
         versionCode rootProject.ext.android["versionCode"]
         versionName rootProject.ext.android["versionName"]
 
-        multiDexEnabled true
-
-    }
-
-    signingConfigs {
-        release {
-            storeFile file('trust.jks')
-            keyAlias 'trust'
-            storePassword "smalltrust"
-            keyPassword "smalltrust"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.name]
+            }
         }
     }
-
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-
-        debug {
-            signingConfig signingConfigs.release
-        }
     }
+
 }
 
 dependencies {
-    api project(path: ':feature')
+    api project(path: ':library')
 
     kapt rootProject.ext.router["router-compiler"]
 }

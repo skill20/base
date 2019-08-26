@@ -47,8 +47,8 @@ ext {
     commonDependencies = [
 
             //网络框架
+            "net"                          : "cn.jpush.android:net:3.0.0",
             "imageloader"                  : "cn.jpush.android:imageloader:2.0.9",
-            "net"                          : "cn.jpush.android:net:2.0.6",
 
             "smartrefresh_layout"          : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-10",
             "smartrefresh_header"          : "com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-10",
