@@ -50,6 +50,8 @@ ext {
             "net"                          : "cn.jpush.android:net:3.0.0",
             "imageloader"                  : "cn.jpush.android:imageloader:2.0.9",
 
+            "live-event-bus"               : "com.jeremyliao:live-event-bus-x:1.4.5",
+
             "smartrefresh_layout"          : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-10",
             "smartrefresh_header"          : "com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-10",
             "smartrefresh_legacy"          : "androidx.legacy:legacy-support-v4:1.0.0",

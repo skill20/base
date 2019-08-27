@@ -4,6 +4,7 @@ import android.app.Application
 import android.os.Build
 import com.alibaba.android.arouter.launcher.ARouter
 import com.hjq.toast.ToastUtils
+import com.jeremyliao.liveeventbus.LiveEventBus
 import com.liulishuo.filedownloader.FileDownloader
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
@@ -51,6 +52,11 @@ object AppConfig {
 
         ToastUtils.init(application)
 
+        //事件总线
+        LiveEventBus.get()
+            .config()
+            .lifecycleObserverAlwaysActive(true)
+            .autoClear(false)
 
         //文件下载器初始化
         FileDownloader.setupOnApplicationOnCreate(application)

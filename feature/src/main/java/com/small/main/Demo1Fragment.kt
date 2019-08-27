@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.jeremyliao.liveeventbus.LiveEventBus
 import com.orhanobut.logger.Logger
 import com.trust.library.arouter.RouterPath
 
@@ -19,6 +22,8 @@ import com.trust.library.arouter.RouterPath
 @Route(path = RouterPath.FRAGMENT_FEATURE_2)
 class Demo1Fragment : Fragment() {
 
+    private lateinit var featureViewModel: FeatureViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,6 +35,23 @@ class Demo1Fragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Logger.i("Demo1Fragment ${hashCode()} onCreate")
+    }
+
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        featureViewModel = activity.let {
+            ViewModelProvider(it!!).get(FeatureViewModel::class.java)
+        }
+
+
+        featureViewModel.value.observe(this, Observer {
+            Logger.i("Demo1Fragment $it ")
+        })
+
+        LiveEventBus.get().with("post_value", String::class.java).observe(this, Observer {
+            Logger.i("Demo1Fragment from post $it ")
+        })
     }
 
     override fun onStart() {
@@ -48,6 +70,11 @@ class Demo1Fragment : Fragment() {
     override fun onPause() {
         super.onPause()
         Logger.i("Demo1Fragment ${hashCode()} onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Logger.i("Demo1Fragment ${hashCode()} onStop")
     }
 
     override fun onDestroy() {
