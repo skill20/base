@@ -9,9 +9,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.alibaba.android.arouter.launcher.ARouter
 import com.hjq.toast.ToastUtils
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.orhanobut.logger.Logger
+import com.small.login_service.LOGIN_SERVICE
+import com.small.login_service.LoginService
 import kotlinx.android.synthetic.main.fragment_demo2.*
 
 /**
@@ -50,8 +53,12 @@ class Demo2Fragment : Fragment() {
 
         post.setOnClickListener {
             val v = "哈哈"
-            featureViewModel.value.postValue(v)
+//            featureViewModel.value.postValue(v)
 //            LiveEventBus.get().with("post_value").post(v)
+
+//            val service = ARouter.getInstance().navigation(LoginService::class.java)
+            val service = ARouter.getInstance().build(LOGIN_SERVICE).navigation() as LoginService
+            Logger.i("login ${service.isLogin()}")
         }
     }
 

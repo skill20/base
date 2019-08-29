@@ -1,2 +1,2 @@
-include ':app', ':library', ':feature'
+include ':app', ':library', ':feature',':login_module:login_service',':login_module:login'
 rootProject.name='android-trust'

@@ -33,6 +33,6 @@ android {
 
 dependencies {
     api project(path: ':library')
-    api project(path: ':login_module:login_service')
+
     kapt rootProject.ext.router["router-compiler"]
 }
