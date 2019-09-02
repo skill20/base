@@ -1,4 +1,4 @@
-package com.trust.library
+package com.trust.library.utils
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
